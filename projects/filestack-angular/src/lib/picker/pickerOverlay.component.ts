@@ -31,21 +31,10 @@ export class PickerOverlayComponent extends PickerBaseDirective implements After
         this.generateId();
       }
     });
-
-    console.log({
-      ...this.pickerOptions,
-      container: `#${this.elementId}`,
-      displayMode: PickerDisplayMode.overlay,
-      onUploadDone: res => this.uploadSuccess.next(res),
-      onClose: () => {
-        this.isActive = false;
-        this.generateId();
-      }
-    });
   }
 
   @HostListener('click', ['$event'])
-  onClick(event) {
+  onClick(event: Event) {
     if (this.isActive) {
       return;
     }
@@ -56,6 +45,6 @@ export class PickerOverlayComponent extends PickerBaseDirective implements After
     this.isActive = true;
 
     // Picker open success handler there is ommited, because it's accessible from pickerOptions
-    this.picker.open().catch(err => this.uploadError.next(err));
+    this.picker?.open().catch(err => this.uploadError.next(err));
   }
 }

@@ -11,6 +11,6 @@ export class FilestackTransformPipe implements PipeTransform {
   constructor(private filestackService: FilestackService) {}
 
   transform(value: string, transformOptions?: TransformOptions): string {
-    return this.filestackService.transform(value, transformOptions);
+    return this.filestackService.transform(value, transformOptions ?? {});
   }
 }

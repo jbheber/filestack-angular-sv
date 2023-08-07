@@ -24,16 +24,16 @@ export abstract class PickerBaseDirective implements OnInit, OnDestroy {
 
   public elementId = 'picker-container';
 
-  @Input() apikey: string;
-  @Input() pickerOptions: PickerOptions;
-  @Input() clientOptions: ClientOptions;
-  @Input() file: InputFile;
-  @Input() source: string;
+  @Input() apikey: string = '';
+  @Input() pickerOptions: PickerOptions = {};
+  @Input() clientOptions: ClientOptions = {};
+  @Input() file: InputFile | null = null;
+  @Input() source: string = '';
 
   @Output() uploadSuccess: Subject<PickerResponse>;
   @Output() uploadError: Subject<FilestackError>;
 
-  picker: PickerInstance;
+  picker: PickerInstance | null = null;
 
   constructor(@Inject(FilestackService) protected filestackService: FilestackService) {
     this.uploadSuccess = new Subject();

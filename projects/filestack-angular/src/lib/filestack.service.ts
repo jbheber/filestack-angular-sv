@@ -22,19 +22,19 @@ import {
 @Injectable()
 export class FilestackService {
 
-  private clientInstance: Client;
+  private clientInstance: Client | null = null;
 
-  private clientOptions: ClientOptions;
+  private clientOptions: ClientOptions = {};
 
-  private apikey: string;
+  private apikey: string = '';
 
   constructor(@Optional() @Inject('config') private config?: InitialConfig) {
     if (!config) {
       return;
     }
 
-    this.clientOptions = config.options;
-    this.apikey = config.apikey;
+    this.clientOptions = config.options ?? {};
+    this.apikey = config.apikey ?? '';
   }
 
   private get client(): Client {

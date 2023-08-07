@@ -1,3 +1,7 @@
+# Note
+
+This is a fork of the original filestack [repo](https://github.com/filestack/filestack-angular). Dev dependencies where outdated
+
 <p align="center"><img src="logo.svg" align="center" width="80"/></p>
 <h1 align="center">
   filestack-angular
@@ -19,23 +23,24 @@
 <hr>
 
 **Table of Contents**
-- [Overview](#overview)
-- [Usage](#usage)
-  - [Installation](#installation)
-  - [CDN](#cdn)
-  - [Available inputs](#available-inputs)
-  - [Available outputs](#available-outputs)
-  - [FilestackService](#filestackservice)
-  - [Examples](#examples)
-    - [Open picker directly after component initialization](#open-picker-directly-after-component-initialization)
-    - [Open picker by clicking the custom button](#open-picker-by-clicking-the-custom-button)
-    - [Open picker in inline mode](#open-picker-in-inline-mode)
-    - [Open picker in drop pane mode](#open-picker-in-drop-pane-mode)
-    - [Get transformed url using filestackTransform pipe](#get-transformed-url-using-filestacktransform-pipe)
-    - [Select file and upload using sdk client.upload()](#select-file-and-upload-using-sdk-clientupload)
-- [Documentation](#documentation)
-- [Development](#development)
-- [Contributing](#contributing)
+- [Note](#note)
+  - [Overview](#overview)
+  - [Usage](#usage)
+    - [Installation](#installation)
+    - [CDN](#cdn)
+    - [Available inputs](#available-inputs)
+    - [Available outputs](#available-outputs)
+    - [FilestackService](#filestackservice)
+    - [Examples](#examples)
+      - [Open picker directly after component initialization](#open-picker-directly-after-component-initialization)
+      - [Open picker by clicking the custom button](#open-picker-by-clicking-the-custom-button)
+      - [Open picker in inline mode](#open-picker-in-inline-mode)
+      - [Open picker in drop pane mode](#open-picker-in-drop-pane-mode)
+      - [Get transformed url using filestackTransform pipe](#get-transformed-url-using-filestacktransform-pipe)
+      - [Select file and upload using sdk client.upload()](#select-file-and-upload-using-sdk-clientupload)
+  - [Documentation](#documentation)
+  - [Development](#development)
+  - [Contributing](#contributing)
 
 ## Overview
 filestack-angular is a wrapper on [filestack-js](https://github.com/filestack/filestack-js) sdk which allow you to integrate with Filestack service in just a few lines of code. Almost all you are able to do with [filestack-js](https://filestack.github.io/filestack-js/index.html) you can also do using this component.
@@ -44,7 +49,7 @@ This repository a contains angular workspace with two projects:
 - `filestack-angular` library which contains `FilestackAngularModule` published via npm
 - `example` angular app to show examples of using `FilestackModule` features
 
-`FilestackAngularModule` consists of 
+`FilestackAngularModule` consists of
 - **FilestackService** - wrapper for a filestack-js client class with added support for an observables
 - **FilestackTransformPipe** - Pipe for easily creating url with [transformations](https://www.filestack.com/docs/api/processing/)  in your template
 - **PickerOverlayComponent** - Filestack picker component that will open in overlay mode
@@ -109,11 +114,11 @@ where {MODULE_VERSION} is desired version of this package
 | Name                       | Type                                                                                  | Required | Default  | Description                                                                                                                                        |
 |----------------------------|---------------------------------------------------------------------------------------|----------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | uploadSuccess              | Subject<PickerResponse>                                                               |          |          | A subject that emits on uploadSuccess event                                                                                                              |
-| uploadError                | Subject<FilestackError>                                                               |          |          | A subject that emits on uploadError event   
+| uploadError                | Subject<FilestackError>                                                               |          |          | A subject that emits on uploadError event
 
 ### FilestackService
 The `FilestackService` is an adapter on filestack-js [client class](https://filestack.github.io/filestack-js/classes/client.html)
-and allows you to work with Observables instead of promises. 
+and allows you to work with Observables instead of promises.
 Methods get the same input params as client class method.
 
 | method            | return                                                                                    | description                                                                  |
@@ -298,7 +303,7 @@ export class AppComponent implements OnInit {
   constructor(private filestackService: FilestackService) {}
 
   ngOnInit() {
-    this.filestackService.init('YOUR_API_KEY'); 
+    this.filestackService.init('YOUR_API_KEY');
   }
   fileChanged(e) {
     this.file = e.target.files[0];
@@ -320,7 +325,7 @@ export class AppComponent implements OnInit {
 You can find necessary info about avalaible options for actions (Client class methods) at https://filestack.github.io/filestack-js/
 
 ## Development
-After adding changes to `FilestackAngularModule` in /projects/filestack-angular/src 
+After adding changes to `FilestackAngularModule` in /projects/filestack-angular/src
 
 you need to build this module
 
